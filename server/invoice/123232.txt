@@ -1,6 +1,0 @@
-Customer Name: wael haddad
-Product Name	Quantity	Price
-dsadasd			1			35
-7aleeb soyass			1			3213
-7aleeb			1			11
-Total Price : 3259

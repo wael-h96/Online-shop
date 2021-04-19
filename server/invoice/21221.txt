@@ -1,5 +1,0 @@
-Customer Name: wael haddad
-Product Name	Quantity	Price
-Milksssssssssss			1			105
-7aleeb			1			11
-Total Price : 116
