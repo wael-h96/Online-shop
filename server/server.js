@@ -25,7 +25,7 @@ app.use('/api', require('./apiRouter'));
 
 const port = 8080;
 mongoose.connect(
-	'mongodb://localhost:27017/OnlineShop',
+	'mongodb://localhost:27017/316278613',
 	{ useNewUrlParser: true, useUnifiedTopology: true }
 ).then(() => app.listen(port, () => console.log(`Server is running on port ${port}`)))
 	.catch(error => console.log(error));
