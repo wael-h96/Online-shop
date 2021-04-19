@@ -17,12 +17,4 @@ const adminSchema = new Schema(
 
 const admin = mongoose.model("admin", adminSchema)
 
-admin.insertMany([{
-    adminId: "9999",
-    email: "admin@gmail.com",
-    password: "1234",
-    firstName: "David",
-    lastName: "Sokola",
-}])
-
 module.exports = admin;
