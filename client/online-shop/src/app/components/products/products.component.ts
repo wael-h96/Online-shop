@@ -44,6 +44,7 @@ export class ProductsComponent implements OnInit {
 
     this.adminService._ifUpdateSuccesseded
       .subscribe((status: boolean) => {
+        
         if (status === true) {
           this.whichProduct = this.adminService.productCategoryId
           this.getProducts()

@@ -46,4 +46,11 @@ h3{
     background-color: rgba(0, 110, 255, 0.329);
 }
 
+.logout-div{
+    display: flex;
+    margin: 15px;
+}
+
+
+
 

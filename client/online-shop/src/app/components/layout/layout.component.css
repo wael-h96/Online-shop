@@ -4,31 +4,36 @@ section{
     text-align: center;
     box-sizing: border-box;
     display: grid;
-    grid-template-rows: 10% 85% 5%;
+    /* grid-template-rows: 10% 85% 5%; */
+    grid-template-rows:repeat(15,1fr) ;
     grid-template-columns: repeat(12,1fr);
 }
 
 header{
     grid-column: span 12;
+    grid-row: span 2;
 }
 
-app-main-components{
+/* app-main-components{
     grid-column: span 12;
+    grid-row: span 7;
     background-color:aliceblue;
 }
 
 app-shopping-components{
     grid-column: span 12;
     background-color: aliceblue;
-}
+} */
 
 main{
     grid-column: span 12;
+    grid-row: span 12;
     background-color: aliceblue;
 }
 
 footer{
     grid-column: span 12;
+    grid-row: span 1;
     background-color: rgb(77, 200, 241);
 }
 

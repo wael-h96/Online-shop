@@ -21,4 +21,7 @@
             <h3 class="greeting">Hello {{CustomerName}}</h3>
         </div>
     </div>
+    <div class="logout-div" *ngIf="loggedIn">
+        <button class="btn btn-danger" (click)="logOut()">Log Out</button>
+    </div>
 </div>

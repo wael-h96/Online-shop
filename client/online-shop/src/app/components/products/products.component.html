@@ -1,10 +1,4 @@
 <div *ngIf="!ifOrderPage">
-    <div class="search-input" *ngIf="role!=='admin'">
-        <!-- <form method="GET" action="http://localhost:8080/api/product/" (submit)="findSearchedProduct()">
-            <input type="text" name="product-name" [(ngModel)]="productName" placeholder="Enter product name ..." />
-            <button type="submit">Search</button>
-        </form> -->
-    </div>
 
     <div *ngIf="ifPopUp">
         <div class="popUpBox">
@@ -12,7 +6,7 @@
                 <h1 style="font-weight: bolder;">Choose The Quantity</h1>
                 <h3>Product Name : {{products[productIndex].productName}}</h3>
                 <h3>Total : {{(products[productIndex].price)*quantity}}</h3>
-                <input class="form-control" name="quantity" type="number" [(ngModel)]="quantity" /><br />
+                <input class="form-control" name="quantity" type="number" [(ngModel)]="quantity" min="0" /><br />
                 <div class="btn-div">
                     <input name="submit-btn" class="btn btn-primary button" type="submit" value="Add To Cart" /><br />
                     <button class="btn btn-danger button" (click)="ifPopUp = false">Close</button>

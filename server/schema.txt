@@ -1,0 +1,45 @@
+{% comment %} Users {% endcomment %}
+db.user.insertMany([
+    {userId:"1111",email:"c000@my-shop.com",password:"1234",city:"Haifa",street:"Alenbi",firstName:"Wael",lastName:"Haddad",role:"customer"},
+    {userId:"2222",email:"c111@my-shop.com",password:"1234",city:"Tel-Aviv",street:"Bengorion",firstName:"Saher",lastName:"Haddad",role:"customer"},
+    {userId:"3333",email:"a999@my-shop.com",password:"1234",city:"Eilat",street:"Alenbi",firstName:"Ragnar",lastName:"Lothbrok",role:"admin"},
+])
+
+
+{% comment %} Cart for c000@my-shop.com {% endcomment %}
+
+db.cart.insertOne(
+    {
+        createdAt:"24/12/2021",
+        products:[
+            {productId:"11111",productName:"Milk",price:6 ,quantity:2},
+            {productId:"13333",productName:"Yogurt",price:15 ,quantity:1},
+            {productId:"23333",productName:"Cucamber",price:7 ,quantity:3},
+            {productId:"12222",productName:"Cheese",price:10 ,quantity:1},
+            {productId:"43333",productName:"Blu Nun",price:70 ,quantity:1},
+        ],
+        isDone:false,
+        customerId:"1111",
+        totalPrice:128    
+    }
+)
+
+{% comment %} 20 Products to Insert to the database {% endcomment %}
+db.product.insertMany([
+    {productId:"11111" , productName:"Milk" ,categoryId:"1" ,price:6 ,image:""},
+    {productId:"12222" , productName:"Cheese" ,categoryId:"1" ,price:10 ,image:""},
+    {productId:"13333" , productName:"Yogurt" ,categoryId:"1" ,price:15 ,image:""},
+    {productId:"14444" , productName:"Labaneh" ,categoryId:"1" ,price:"17" ,image:""},
+    {productId:"21111" , productName:"Banana" ,categoryId:"2" ,price:7 ,image:""},
+    {productId:"22222" , productName:"Apple" ,categoryId:"2" ,price:"20" ,image:""},
+    {productId:"23333" , productName:"Cucamber" ,categoryId:"2" ,price:7 ,image:""},
+    {productId:"24444" , productName:"Onion" ,categoryId:"2" ,price:1.90 ,image:""},
+    {productId:"31111" , productName:"Beef" ,categoryId:"3" ,price:90 ,image:""},
+    {productId:"32222" , productName:"Tuna" ,categoryId:"3" ,price:50 ,image:""},
+    {productId:"33333" , productName:"Salamon" ,categoryId:"3" ,price:120 ,image:""},
+    {productId:"34444" , productName:"Pork" ,categoryId:"3" ,price:90 ,image:""},
+    {productId:"41111" , productName:"Fanta" ,categoryId:"4" ,price:8 ,image:""},
+    {productId:"42222" , productName:"XL" ,categoryId:"4" ,price:6 ,image:""},
+    {productId:"43333" , productName:"Blu Nun" ,categoryId:"4" ,price:70 ,image:""},
+    {productId:"44444" , productName:"CocaCola" ,categoryId:"4" ,price:10 ,image:""},
+])

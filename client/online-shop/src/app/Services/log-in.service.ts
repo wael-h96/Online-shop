@@ -18,6 +18,7 @@ export class LogInService {
 
   public userRole: string = "";
   public customerId: string = ""
+  public customerName: string = ""
 
   public loggedIn: boolean = false;
 

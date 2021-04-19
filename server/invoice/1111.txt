@@ -1,0 +1,5 @@
+Customer Name: Wael Haddad
+Product Name	Quantity	Price
+Eggss			2			18
+Cheeses			1			52
+Total Price : 70

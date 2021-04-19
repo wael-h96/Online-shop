@@ -70,6 +70,7 @@ export class AdminComponent implements OnInit {
 
 
   updateProduct(): void {
+
     this.updatedProduct = {
       productId: this.adminService.productId,
       productName: this.updateProductName,
@@ -77,17 +78,19 @@ export class AdminComponent implements OnInit {
       categoryId: this.updateProductCategory,
       image: "",
     }
+    
 
     this.adminService.updateProduct(this.updatedProduct)
       .subscribe((data: any) => {
-
-        if (data.message === "ok") {
+       
+        if (data.message === "Successfuly Updated") {
 
           this.adminService.productCategoryId = this.updateProductCategory
           this.adminService.setIfUpdateSuccesseded(true)
           this.message = data.message
           this.ifProductSelectedToUpdate = false;
         } else {
+         
           this.adminService.setIfUpdateSuccesseded(false)
           this.message = data.message
         }

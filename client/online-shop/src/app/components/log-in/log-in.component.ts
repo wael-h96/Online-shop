@@ -34,17 +34,21 @@ export class LogInComponent implements OnInit {
 
     this.logInService.perfomSignIn(user)
       .subscribe(data => {
+        console.log(data)
         if (data.error)
           this.messages = data.error
         else {
           this.loggedin = true;
-
-          // need to replace with session
+          
           this.logInService.customerId = data.loggedInUser.userId
           this.logInService.userRole = data.loggedInUser.role
           this.role = data.loggedInUser.role
-          if (data.loggedInUser.role !== "admin") {
+          if (this.role === "admin")
+            this.logInService.customerName = "Admin"
+          else
+            this.logInService.customerName = data.loggedInUser.firstName
 
+          if (data.loggedInUser.role !== "admin") {
             this.shoppingService.fetchCartProducts(this.logInService.customerId)
               .subscribe((data: any) => {
                 if (data.length != 0)

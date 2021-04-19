@@ -20,7 +20,6 @@ export class SignUpComponent implements OnInit {
   public firstPartDone: boolean = false;
   public newUserPart1: NewUser1 | undefined;
   public newUserPart2: NewUser2 | undefined;
-  public errorMessage: string = ""
   public messages: string = ""
 
   constructor(private SignUpService: SignUpService) { }
@@ -36,23 +35,23 @@ export class SignUpComponent implements OnInit {
       password: this.password1,
     };
     if (this.password1 != this.password2) {
-      this.errorMessage = "Passwords does not match"
-      setInterval(() => {
-        this.errorMessage = ""
-      }, 5000)
+      this.messages = "Passwords does not match"
+      setTimeout(() => {
+        this.messages = ""
+      }, 3000)
     }
     else {
       this.SignUpService.submitFirstRegisteration(this.newUserPart1)
         .subscribe(data => {
           if (data.message === "success") {
             this.firstPartDone = true;
-            this.errorMessage = ""
+            this.messages = ""
           }
           else {
-            this.errorMessage = data.message
-            setInterval(() => {
-              this.errorMessage = ""
-            }, 5000)
+            this.messages = data.message
+            setTimeout(() => {
+              this.messages = ""
+            }, 3000)
           }
         });
     }
@@ -71,7 +70,7 @@ export class SignUpComponent implements OnInit {
       .subscribe(data => {
         if (data.ok)
           this.messages = "User successfuly registerd!"
-        setInterval(() => {
+        setTimeout(() => {
           this.messages = ""
         }, 2000)
       }

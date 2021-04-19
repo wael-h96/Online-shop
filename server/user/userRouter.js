@@ -40,33 +40,45 @@ router.post("/sign-up-2", async (req, res) => {
 })
 
 router.post("/log-in", async (req, res) => {
+
     const { user: { userName, password } } = req.body
 
+    const builtInUsers = ["c000@my-shop.com", "c111@my-shop.com", "a999@my-shop.com"];
+
     try {
+
         const ifUserExists = await userDB.find({ email: userName })
 
-        if (ifUserExists.length > 0) {
-            await bcrypt.compare(password, ifUserExists[0].password, (err, match) => {
-                if (err) {
-                    res.json({ error: err.message })
-                }
-                else {
-                    if (match) {
+        const ifBuiltInUser = builtInUsers.find(user => user === userName)
 
-                        // const user = remove(ifUserExists[0], ["password"])
-                        req.session.loggedInUser = ifUserExists[0].userId
-                        res.cookie("userId", ifUserExists[0].userId)
+        if (ifBuiltInUser !== undefined) {
+            if (password === ifUserExists[0].password) {
+                res.json({ message: "User successfuly logged-in", loggedInUser: ifUserExists[0] })
+            }
 
-                        console.log("session from server", req.session)
-                        res.json({ message: "User successfuly logged-in", loggedInUser: ifUserExists[0] })
-
-                    } else {
-                        res.json({ error: "Incorrect username or password" })
-                    }
-                }
-            })
         } else {
-            res.json({ error: "Incorrect username or password" })
+
+            if (ifUserExists.length > 0) {
+                await bcrypt.compare(password, ifUserExists[0].password, (err, match) => {
+                    if (err) {
+                        res.json({ error: err.message })
+                    }
+                    else {
+                        if (match) {
+
+                            // const user = remove(ifUserExists[0], ["password"])
+                            req.session.loggedInUser = ifUserExists[0].userId
+                            res.cookie("userId", ifUserExists[0].userId)
+                            res.json({ message: "User successfuly logged-in", loggedInUser: ifUserExists[0] })
+
+                        } else {
+                            res.json({ error: "Incorrect username or password" })
+                        }
+                    }
+                })
+            } else {
+                res.json({ error: "Incorrect username or password" })
+            }
         }
 
     } catch (err) {

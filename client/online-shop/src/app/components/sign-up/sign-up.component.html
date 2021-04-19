@@ -1,8 +1,9 @@
 <div class="main-container">
-    <div>
-        {{errorMessage}}
-    </div>
+
     <div *ngIf="!firstPartDone" class="input-form">
+        <div>
+            {{messages}}
+        </div>
         <form action="/api/customer/sign-up-1" (submit)="$event.preventDefault(); perfomFirstSignUp()">
 
             <div>
@@ -29,6 +30,7 @@
 
 
     <div *ngIf="firstPartDone" class="input-form">
+        {{messages}}
         <form action="/api/customer/sign-up-2" (submit)="$event.preventDefault(); perfomSecondSignUp()">
             <div>
                 <select name="citySelector" [(ngModel)]="city">
@@ -60,7 +62,7 @@
             </div>
         </form>
         <div class="message">
-            {{errorMessage}}
+            {{messages}}
         </div>
 
     </div>
