@@ -1,0 +1,48 @@
+.card-layout{
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+         box-shadow: 0 10px 6px -6px #777;
+    margin: 6px;
+    border-radius: 15px;
+    border: 3px solid gainsboro;
+}
+
+.popUpBox{
+    width: 500px;
+
+    
+      overflow: hidden;
+
+      background:aqua;
+    
+      box-shadow:10px 10px 10px 10px grey;
+    
+      border-radius: 10px;
+    
+      position: absolute;
+    
+      top: 50%;
+    
+      left: 50%;
+    
+      transform: translate(-50%, -50%);
+    
+      z-index: 1;
+    
+      padding: 20px;
+    
+      text-align: center;
+    
+      
+}
+
+.btn-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 10px;
+}
+
+.button{
+    width: 30%;
+}

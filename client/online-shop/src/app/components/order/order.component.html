@@ -1,0 +1,48 @@
+<div>
+    <h1>Order Page</h1>
+    <hr />
+    <h2>{{errors}}</h2>
+    <br />
+    <form method="POST" action="http://localhost:8080/api/order" (submit)="submitOrder()">
+
+        <form method="GET" action="http://localhost:8080/api/user/get-adress">
+            <div class="input-div">
+                <h2>City</h2>
+                <input type="text" #city [(ngModel)]="customerCity" class="form-control" name="city"
+                    (click)="inputClicked(city.name)" />
+            </div>
+            <div class="input-div">
+                <h2>Street</h2>
+                <input type="text" #street [(ngModel)]="customerStreet" class="form-control" name="street"
+                    (click)="inputClicked(street.name)" />
+            </div>
+        </form>
+
+        <div class="input-div">
+            <h2>Shipping Date</h2>
+            <input class="form-control" type="date" name="shippingDate" [(ngModel)]="shippingDate" />
+        </div>
+        <h1>Payments</h1>
+        <hr />
+        <br />
+        <div class="input-div">
+            <h2>Credit Card</h2>
+            <input class="form-control" type="text" name="creditCard" [(ngModel)]="creditCard" />
+        </div>
+
+        <div>
+            <button type="submit" class="btn btn-success">Order</button>
+        </div>
+
+        <div *ngIf="showOrderPopup">
+            <form method="POST" action="http://localhost:8080/api/order/download-receipt" (submit)="downloadReceipt()">
+                <div class="popUpBox">
+                    <h1>Your purchase is done</h1>
+                    <h2>If you want a reciept <button class="btn btn-primary" type="submit">click here</button></h2>
+                    <button class="btn btn-primary" (click)="goBackToTheMainPage()">done</button>
+                </div>
+            </form>
+        </div>
+
+    </form>
+</div>

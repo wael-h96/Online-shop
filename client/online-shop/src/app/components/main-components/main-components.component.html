@@ -1,0 +1,36 @@
+<div>
+        
+        
+                <div class="d-flex justify-content-around row row-cols-1 row-cols-md-3 g-4" *ngIf="!ifRegisterPage">
+
+                        <!-- Panel A -->
+                        <div class="card mb-3 panel">
+                                <app-log-in></app-log-in>
+                                <button class="btn btn-success" (click)="goToRegisterPage()">New here? sing-up</button>
+                        </div>
+
+                        <!-- Panel B -->
+                        <div class="card panel">
+                                <h1>Welcome To Wael's Store!!</h1>
+                                <h2>Our store is known for its high quality products , fast service and cheapest prices
+                                        in the market!</h2>
+                                <h2>Enjoy your shopping</h2>
+                        </div>
+
+                        <!-- Panel C -->
+                        <div class="card panel">
+                                <app-panel-c></app-panel-c>
+                        </div>
+                </div>
+
+                <div *ngIf="ifRegisterPage">
+                        <div>
+                                <app-sign-up></app-sign-up>
+                        </div>
+                        <div>
+                                <button class="btn btn-success" (click)="goBackToLogInPage()">Go Back To LogIn</button>
+                        </div>
+                </div>
+        
+
+</div>

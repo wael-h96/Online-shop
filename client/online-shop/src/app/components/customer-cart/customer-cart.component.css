@@ -1,0 +1,48 @@
+.main-container{
+    display: grid;
+    grid-template-rows: repeat(10,1fr);
+    height: auto;
+    max-height: 1000px;   
+}
+
+/* .search-input{
+    grid-row: span 1;
+} */
+
+.products{
+    margin-top: 10px;
+    border: 3px solid grey;
+}
+
+.cart-items{
+    grid-row: span 8;
+    overflow: scroll;
+    overflow-y: auto;
+    overflow-x: auto;
+    max-height: 800px;
+    
+
+}
+
+.upper-div{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    grid-row: span 1;
+}
+
+.lower-div{
+    grid-row: span 1;
+    margin-top: 30px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    max-height: 150px;
+    
+}
+
+h1,h3{
+    margin-top: 10px;
+    font-weight: bolder;
+    text-decoration: wavy;
+}

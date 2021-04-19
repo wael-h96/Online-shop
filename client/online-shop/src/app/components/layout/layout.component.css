@@ -1,0 +1,38 @@
+section{
+    height: 100%;
+    border: 2px black solid;
+    text-align: center;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: 10% 85% 5%;
+    grid-template-columns: repeat(12,1fr);
+}
+
+header{
+    grid-column: span 12;
+}
+
+app-main-components{
+    grid-column: span 12;
+    background-color:aliceblue;
+}
+
+app-shopping-components{
+    grid-column: span 12;
+    background-color: aliceblue;
+}
+
+main{
+    grid-column: span 12;
+    background-color: aliceblue;
+}
+
+footer{
+    grid-column: span 12;
+    background-color: rgb(77, 200, 241);
+}
+
+h3{
+    margin-top: 15px;
+    font-weight: bold;
+}

@@ -1,0 +1,24 @@
+<div class="main-container">
+    <!-- left side box in the navbar -->
+    <div class="left side">
+        <div>
+            <h2>Wael's Store</h2>
+        </div>
+        <div class="search-div" *ngIf="loggedIn">
+
+            <input class="form-control" type="text" placeholder="Search product.." [(ngModel)]="productName" />
+            <button (click)="findSearchedProduct()" class="btn btn-danger">Search</button>
+
+        </div>
+    </div>
+
+    <!-- right side box in the navbar -->
+    <div class="right side">
+        <div>
+            <h3>Contact As : phone - 05421233333 <br /> email - wael.haddad96@gmail.com</h3>
+        </div>
+        <div *ngIf="loggedIn">
+            <h3 class="greeting">Hello {{CustomerName}}</h3>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+.main-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(49, 194, 252);
+}
+
+.side{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+h2{
+    font-weight: bolder;
+    font-size: 1.7rem;
+    margin-top: 20px;
+}
+
+.search-div{
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+
+}
+
+input{
+    width: 250px;
+}
+
+.right{
+    margin-right: 20px;
+
+}
+
+h3{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.greeting{
+    font-style: italic;
+    font-size: 2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: rgba(0, 110, 255, 0.329);
+}
+
+

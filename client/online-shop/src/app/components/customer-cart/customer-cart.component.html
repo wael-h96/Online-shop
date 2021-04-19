@@ -1,0 +1,51 @@
+<div class="main-container container">
+
+    <div class="upper-div">
+        <h1>My Shopping Cart</h1>
+
+        <div *ngIf="!ifOrderPage && cart.length">
+            <form method="POST" action="http://localhost:8080/api/cart/delete-all">
+                <button (click)="deleteAllProducts()" class="btn btn-danger" name="delete-all-products">Delete All
+                    Products</button>
+            </form>
+        </div>
+        <div *ngIf="ifOrderPage">
+            <button (click)="closeOrderPage()" class="btn btn-success">Go Back To Shopping</button>
+        </div>
+    </div>
+
+    <div>
+        <h3>{{errorMessages}}</h3>
+    </div>
+
+    <div class="cart-items">
+        <hr />
+
+        <div>
+            <div *ngFor="let product of cart ; let i = index">
+                <div class="products">
+                    <div class="card">
+                        <button *ngIf="!ifOrderPage" (click)="deleteProductFromCart(i)"
+                            class="btn btn-danger">Delete</button>
+                        <h2 class="card-body">
+                            {{product.productName}}
+                        </h2>
+                        <h4>Price: {{product.price}}<br />Quantity: {{product.quantity}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <hr />
+    <div class="lower-div">
+        <div class="total-price">
+            <h1>Total Price: {{totalPrice}}$</h1>
+        </div>
+        <div>
+            <button *ngIf="!ifOrderPage" (click)="openOrderPage()" class="btn btn-success">Order</button>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,27 @@
+<div class="grid--container" *ngIf="ifLoggedIn">
+
+    <!-- left sidebar -->
+    <div class="cart">
+        <div *ngIf="!ifAdmin" >
+            <app-customer-cart></app-customer-cart>
+        </div>
+
+        <div *ngIf="ifAdmin">
+            <app-admin></app-admin>
+        </div>
+    </div>
+
+    <!-- right sidebar -->
+    <div class="products">
+        <app-products></app-products>
+    </div>
+
+    <!-- payment component -->
+</div>
+
+<div *ngIf="!ifLoggedIn">
+    
+    <h1>You are not logged in </h1>
+    <h2>In order to enter the shop , press the button below</h2>
+    <button class="btn btn-danger" routerLink="/home-page">Go To LogIn Page</button>
+</div>

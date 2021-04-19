@@ -1,0 +1,35 @@
+<div class="card">
+    <div style="align-items: center;">
+        <img src="http://www.nairobibusinessmonthly.com/wp-content/uploads/2016/11/online-shopping.jpg"
+            class="card-img-top" style="max-width: 500px; max-height: 500px;" />
+    </div>
+    <div class="card-body">
+        <!-- Number of products -->
+        <div>
+            <h4>Available products in our store - {{numberOfProducts}}</h4>
+        </div>
+
+        <!-- Number of orders -->
+        <div>
+            <h4>Number of orders submitted in our store - {{numberOfOrders}}</h4>
+        </div>
+
+        <div *ngIf="ifSignedIn && ifCustomer">
+            <br />
+            <hr />
+            <br />
+            <h2>Notifications:</h2>
+            <div *ngIf="hasOpenCart">
+                <h4>You have open cart from {{cartFromDate}}</h4>
+
+            </div>
+            <div *ngIf="hasAlreadyOrdered">
+                <h4>Your last purchase was on {{lastPurchaseDate}}</h4>
+            </div>
+            <div *ngIf="newCustomer">
+                Welcome To Our Store {{customerName}}
+            </div>
+
+        </div>
+    </div>
+</div>

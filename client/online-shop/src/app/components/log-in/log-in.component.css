@@ -1,0 +1,15 @@
+.main-container{
+    margin-top:80px;
+}
+
+.btns{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+button{
+    margin: 10px;
+    border: 3px solid grey;
+}

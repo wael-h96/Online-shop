@@ -1,0 +1,91 @@
+<div *ngIf="!ifOrderPage">
+    <div class="search-input" *ngIf="role!=='admin'">
+        <!-- <form method="GET" action="http://localhost:8080/api/product/" (submit)="findSearchedProduct()">
+            <input type="text" name="product-name" [(ngModel)]="productName" placeholder="Enter product name ..." />
+            <button type="submit">Search</button>
+        </form> -->
+    </div>
+
+    <div *ngIf="ifPopUp">
+        <div class="popUpBox">
+            <form method="POST" action="http://localhost:8080/api/cart/add-product" (submit)="addToCart()">
+                <h1 style="font-weight: bolder;">Choose The Quantity</h1>
+                <h3>Product Name : {{products[productIndex].productName}}</h3>
+                <h3>Total : {{(products[productIndex].price)*quantity}}</h3>
+                <input class="form-control" name="quantity" type="number" [(ngModel)]="quantity" /><br />
+                <div class="btn-div">
+                    <input name="submit-btn" class="btn btn-primary button" type="submit" value="Add To Cart" /><br />
+                    <button class="btn btn-danger button" (click)="ifPopUp = false">Close</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <div *ngIf="ifProductFound">
+        <div class="col">
+            <div class="card card-layout">
+                <button style="border:none;" (click)="role ==='admin'? updateProduct():showPopUp()">
+                    <img class="card-img-top" />
+                    <div class="card-body">
+                        <h2>{{theFoundProduct?.productName}}</h2>
+                        <h3>Price: {{theFoundProduct?.price}}$</h3>
+                    </div>
+                </button>
+            </div>
+        </div>
+        <button (click)="goBackToMenu()">Go Back To Menu</button>
+    </div>
+
+    <div *ngIf="!ifProductFound">
+
+        <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button (click)="whichProduct = '1'  ;getProducts()" class="nav-link active" id="pills-home-tab"
+                    data-bs-toggle="pill" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Milk
+                    & Eggs</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button (click)="whichProduct = '2' ;getProducts()" class="nav-link" id="pills-profile-tab"
+                    data-bs-toggle="pill" type="button" role="tab" aria-controls="pills-profile"
+                    aria-selected="false">Vegetables & Fruits</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button (click)="whichProduct = '3' ;getProducts()" class="nav-link" id="pills-contact-tab"
+                    data-bs-toggle="pill" type="button" role="tab" aria-controls="pills-contact"
+                    aria-selected="false">Meat
+                    & Fish</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button (click)="whichProduct = '4' ;getProducts()" class="nav-link" id="pills-contact-tab"
+                    data-bs-toggle="pill" type="button" role="tab" aria-controls="pills-contact"
+                    aria-selected="false">Wine
+                    & Drinks</button>
+            </li>
+        </ul>
+
+
+        <!-- Products View -->
+        <div class="container">
+            <div class="row row-cols-5">
+                <div class="col" *ngFor="let product of products ; let i = index">
+                    <div class="card card-layout">
+                        <button style="border: none;" (click)="role ==='admin'? updateProduct(i):showPopUp(i)">
+                            <img class="card-img-top" />
+                            <div class="card-body">
+                                <h2>{{product.productName}}</h2>
+                                <h3>Price: {{product.price}}$</h3>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>>
+
+    </div>
+
+</div>
+
+<div *ngIf="ifOrderPage">
+    <app-order></app-order>
+</div>

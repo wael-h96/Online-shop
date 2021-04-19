@@ -1,0 +1,40 @@
+.main-container{
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+}
+
+.input-form{
+   
+    top: 80%;
+    width: 50%;
+    background:white;
+    -webkit-box-shadow: 0 35px 20px rgb(201, 191, 191);
+    -moz-box-shadow: 0 35px 20px rgb(196, 189, 189);
+    box-shadow: 0 35px 20px #777;
+    
+}
+
+.input{
+    padding: 10px;
+    border-radius: 10px;
+    margin:10px;
+    width:30%;
+}
+
+select{
+    width: 30%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.input-btn{
+    padding: 10px;
+    border: none;
+    background-color: blueviolet;
+    color: white;
+    font-weight: 400;
+    border-radius: 5px;
+    width: 20%;
+    margin: 15px;
+}

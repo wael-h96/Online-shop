@@ -1,0 +1,55 @@
+<div class="add-product-div">
+    <button class="btn btn-success" (click)="ifAddProduct = !ifAddProduct ; ifProductSelectedToUpdate = false">
+        {{ifAddProduct?"Close":"Add Product"}}</button>
+</div>
+
+
+<div *ngIf="ifAddProduct">
+    <h2>Adding A New Product</h2>
+    <div class="left-side-div">
+        <form method="POST" (submit)="$event.preventDefault(); addProduct()"
+            action="http://localhost:8080/api/admin/add-product">
+            <label>Product Name :</label> <input class="form-control" name="name" type="text"
+                [(ngModel)]="productName" /><br />
+            <label>Product Id :</label> <input class="form-control" type="text" name="id"
+                [(ngModel)]="productId" /><br />
+            <label>Product Price :</label> <input class="form-control" type="text" name="price"
+                [(ngModel)]="productPrice" /><br />
+            <label>Product Category :</label> <select class="form-select" name="categorySelector" name="category"
+                [(ngModel)]="productCategory"><br />
+                <option value="1">Milk And Eggs</option>
+                <option value="2">Vegetables And Fruits</option>
+                <option value="3">Meat And Fish</option>
+                <option value="4">Wine And Drinks</option>
+            </select><br />
+            <button class="btn btn-primary" type="submit">Save</button>
+        </form>
+    </div>
+
+</div>
+<hr />
+
+<div *ngIf="ifProductSelectedToUpdate">
+    <h2>Updating A Product</h2>
+    <div class="left-side-div">
+        <form method="POST" (submit)="$event.preventDefault(); updateProduct()"
+            action="http://localhost:8080/api/admin/update-product">
+            <label>Product Name :</label> <input class="form-control" name="name" type="text"
+                [(ngModel)]="updateProductName" /><br />
+            <label>Product Price :</label> <input class="form-control" type="text" name="price"
+                [(ngModel)]="updateProductPrice" /><br />
+            <label>Product Category :</label> <select class="form-select" name="categorySelector" name="category"
+                [(ngModel)]="updateProductCategory"><br />
+                <option value="1">Milk And Eggs</option>
+                <option value="2">Vegetables And Fruits</option>
+                <option value="3">Meat And Fish</option>
+                <option value="4">Wine And Drinks</option>
+            </select><br />
+            <button class="btn btn-primary" type="submit">Save Updates</button>
+        </form>
+    </div>
+</div>
+
+<div class="message-div" *ngIf="message.length>0">
+    <p>{{message}}</p>
+</div>

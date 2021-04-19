@@ -1,0 +1,67 @@
+<div class="main-container">
+    <div>
+        {{errorMessage}}
+    </div>
+    <div *ngIf="!firstPartDone" class="input-form">
+        <form action="/api/customer/sign-up-1" (submit)="$event.preventDefault(); perfomFirstSignUp()">
+
+            <div>
+                <input class="input" name="id" type="text" placeholder="Enter Your ID.." [(ngModel)]="id" />
+            </div>
+
+            <div>
+                <input class="input" name="email" placeholder="Enter Your e-mail.." [(ngModel)]="email" />
+            </div>
+            <div>
+                <input class="input" name="password" type="password" placeholder="Enter Password.."
+                    [(ngModel)]="password1" />
+            </div>
+            <div>
+                <input class="input" name="password" type="password" placeholder="Re-enter Password.."
+                    [(ngModel)]="password2" />
+            </div>
+            <div>
+                <input class="input-btn" type="submit" value="Next" />
+            </div>
+        </form>
+
+    </div>
+
+
+    <div *ngIf="firstPartDone" class="input-form">
+        <form action="/api/customer/sign-up-2" (submit)="$event.preventDefault(); perfomSecondSignUp()">
+            <div>
+                <select name="citySelector" [(ngModel)]="city">
+                    <option value="haifa">Haifa</option>
+                    <option value="tel-aviv">Tel Aviv</option>
+                    <option value="eilat">Eilat</option>
+                    <option value="nhariya">Nhariya</option>
+                    <option value="ntanya">Ntanya</option>
+                    <option value="khdera">Khdera</option>
+                    <option value="ashkelon">Ashkelon</option>
+                    <option value="beer-shevaa">Beer Shevaa</option>
+                    <option value="akko">Akko</option>
+                    <option value="jerusalem">Jerusalem</option>
+                </select>
+            </div>
+            <div>
+                <input class="input" type="text" placeholder="Enter Your Street.." name="street" [(ngModel)]="street" />
+            </div>
+            <div>
+                <input class="input" type="text" placeholder="Enter Your First Name.." name="fName"
+                    [(ngModel)]="firstName" />
+            </div>
+            <div>
+                <input class="input" type="text" placeholder="Enter Your Last Name.." name="lName"
+                    [(ngModel)]="lastName" />
+            </div>
+            <div>
+                <input class="input-btn" type="submit" value="Perfom Registeration" />
+            </div>
+        </form>
+        <div class="message">
+            {{errorMessage}}
+        </div>
+
+    </div>
+</div>
