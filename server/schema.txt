@@ -1,3 +1,6 @@
+All the customers and the admin has the same password :- 1234
+
+
 {% comment %} Users {% endcomment %}
 db.user.insertMany([
     {userId:"1111",email:"c000@my-shop.com",password:"1234",city:"Haifa",street:"Alenbi",firstName:"Wael",lastName:"Haddad",role:"customer"},
@@ -5,6 +8,10 @@ db.user.insertMany([
     {userId:"3333",email:"a999@my-shop.com",password:"1234",city:"Eilat",street:"Alenbi",firstName:"Ragnar",lastName:"Lothbrok",role:"admin"},
 ])
 
+{% comment %} Admin user databse {% endcomment %}
+db.admin.insertOne(
+    {adminId:"3333",email:"a999@my-shop.com",password:"1234",firstName:"Ragnar",lastName:"Lothbrok"}
+)
 
 {% comment %} Cart for c000@my-shop.com {% endcomment %}
 
